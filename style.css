@@ -64,7 +64,7 @@ body{
   cursor: auto;
 }
 @media (hover: none), (pointer: coarse){
-  body{ cursor: auto; }
+  body{ cursor: none; }
   .cursor-dot, .cursor-ring{ display:none; }
 }
 
