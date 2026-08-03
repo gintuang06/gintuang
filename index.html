@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gin Tuang — Mechanical Engineering &amp; R&amp;D Programming</title>
+<meta name="description" content="Portfolio of Gin Tuang, mechanical engineering student at Northwestern University and R&D Programming Intern at AAON, Inc. CAD, FEA, CFD, Python automation, and MATLAB numerical modeling.">
+<meta name="theme-color" content="#0a0e14">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Gin Tuang — Mechanical Engineering Portfolio">
+<meta property="og:description" content="Engineering intern building CAD automation tools, FEA/topology optimization, and numerical simulations.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ LOADING SCREEN ============ -->
+<div id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <svg viewBox="0 0 120 120" class="loader-mark">
+      <circle cx="60" cy="60" r="46" class="loader-ring"></circle>
+      <path d="M60 14 L60 30 M60 90 L60 106 M14 60 L30 60 M90 60 L106 60" class="loader-ticks"></path>
+    </svg>
+    <p class="loader-label">INITIALIZING<span class="dots">...</span></p>
+  </div>
+</div>
+
+<!-- ============ SCROLL PROGRESS ============ -->
+<div id="scroll-progress" aria-hidden="true"><span></span></div>
+
+<!-- ============ CANVAS BACKGROUNDS ============ -->
+<canvas id="blueprint-canvas" aria-hidden="true"></canvas>
+
+<!-- ============ NAV ============ -->
+<header class="nav-wrap">
+  <nav class="nav glass" id="site-nav">
+    <a href="#hero" class="nav-brand">G.T<span class="brand-dot">/</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#featured">Case Study</a></li>
+      <li><a href="#leadership">Leadership</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="theme-toggle" aria-label="Toggle light and dark mode" title="Toggle theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"/></svg>
+      </button>
+      <button id="nav-burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero" class="section hero">
+    <div class="hero-grid">
+      <div class="hero-copy reveal">
+        <p class="eyebrow mono">SHEET 00 / TITLE BLOCK</p>
+        <h1 class="hero-name">Gin Tuang</h1>
+        <p class="hero-role">
+          Mechanical Engineering @ Northwestern &middot;
+          <span id="role-rotator" class="rotator mono">Problem Solver</span>
+        </p>
+        <p class="hero-sub">
+          R&amp;D Programming Intern at AAON, Inc. — building CAD automation tools that turn
+          electrical diagrams into fully placed 3D panel models. When I'm not scripting Inventor,
+          I'm playing the guitar, watching foriegn tv shows, and catching up on the Word of God.
+        </p>
+        <div class="hero-actions">
+          <a href="assets/resume/Gin_Tuang_Resume.pdf" class="btn btn-primary" download>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16"/></svg>
+            Download Resume
+          </a>
+          <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+        </div>
+      </div>
+
+      <div class="hero-panel glass reveal" id="hud-panel">
+        <div class="hud-head">
+          <span class="hud-dot"></span>
+          <span class="mono hud-title">VIEWPORT — ACTIVE_TOOLS.cfg</span>
+        </div>
+        <ul class="hud-list mono">
+          <li><span>CAD</span><span>SolidWorks / Inventor / SolidEdge / NX Cad</span></li>
+          <li><span>SIM</span><span>FEA · CFD · Top Opt.</span></li>
+          <li><span>NUM</span><span>MATLAB · SymPy</span></li>
+          <li><span>AUTO</span><span>Python · Inventor API</span></li>
+        </ul>
+        <div class="hud-photo">
+            <img src="assets/images/profile.jpg" alt="Gin Tuang" class="profile-image">
+        </div>
+          <span class="mono">ME</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-stats reveal">
+      <div class="stat">
+        <span class="stat-num" data-count="7">0</span>
+        <span class="stat-label mono">Automation Pipeline Phases</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-count="33" data-suffix="%">0</span>
+        <span class="stat-label mono">FSAE Rear Wing Mass Reduction</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-count="2028">0</span>
+        <span class="stat-label mono">Graduation Year</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-count="0" data-suffix="→∞">0</span>
+        <span class="stat-label mono">Manually Placed → Automated</span>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-cue" aria-label="Scroll to About section">
+      <span class="mono">SCROLL</span>
+      <svg width="14" height="20" viewBox="0 0 14 20"><rect x="1" y="1" width="12" height="18" rx="6" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="7" cy="6" r="1.6" fill="currentColor" class="scroll-dot"/></svg>
+    </a>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="section">
+    <p class="eyebrow mono reveal">SHEET 01 / ABOUT</p>
+    <h2 class="section-title reveal">Built by family, shaped by parts lists.</h2>
+
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p>
+          I grew up in Tulsa, Oklahoma, in a household where HVAC manufacturing was the dinner-table
+          topic — both of my parents work in manufacturing and quality roles at AAON. So when I got
+          the chance to intern there as an R&amp;D Programming Intern, it felt less like a summer job
+          and more like getting to finally sit at the table I'd been listening in on for years.
+        </p>
+        <p>
+          Now I'm a junior mechanical engineering student at Northwestern (Class of 2028), and the
+          thread running through everything I do — coursework, internship, side projects — is the same:
+          take something that's slow, manual, or error-prone, and rebuild it as a system. That's shown
+          up as a zero-to-one CAD automation pipeline at AAON, as Lagrangian-mechanics simulations for
+          robotics coursework, and as topology-optimized parts for Formula SAE.
+        </p>
+        <p>
+          Long term, I want to work at the intersection of mechanical design and the software that
+          makes mechanical design faster — tools engineers actually want to use, not tools they're
+          forced to tolerate.
+        </p>
+      </div>
+
+      <div class="about-timeline reveal">
+        <h3 class="mono timeline-heading">TIMELINE</h3>
+        <ol class="timeline">
+          <li class="timeline-item">
+            <span class="timeline-dot"></span>
+            <span class="timeline-date mono">2024</span>
+            <div class="timeline-body">
+              <h4>Enrolled at Northwestern University</h4>
+              <p>A Mechanical Engineering student, Class of 2028.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-dot"></span>
+            <span class="timeline-date mono">Spring 2026</span>
+            <div class="timeline-body">
+              <h4>AAON Interview Prep &amp; Offer</h4>
+              <p>Prepared across HVAC fundamentals, Python/OOP, and role-specific technical rounds; accepted the R&amp;D Programming offer.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-dot"></span>
+            <span class="timeline-date mono">June 2026</span>
+            <div class="timeline-body">
+              <h4>Started at AAON, Inc.</h4>
+              <p>R&amp;D Programming Intern, Tulsa, OK — began the panel layout automation build.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-dot"></span>
+            <span class="timeline-date mono">Summer 2026</span>
+            <div class="timeline-body">
+              <h4>Low-Voltage → High-Voltage Panels</h4>
+              <p>Shipped config-driven low-voltage panel placement, then extended the engine to tighter-constraint high-voltage panels.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-dot"></span>
+            <span class="timeline-date mono">2028</span>
+            <div class="timeline-body">
+              <h4>Expected Graduation</h4>
+              <p>B.S. Mechanical Engineering, Northwestern University.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience" class="section">
+    <p class="eyebrow mono reveal">SHEET 02 / EXPERIENCE</p>
+    <h2 class="section-title reveal">Internship Experience</h2>
+
+    <div class="exp-card glass reveal">
+      <button class="exp-header" aria-expanded="true" data-exp-toggle>
+        <div class="exp-header-text">
+          <h3>R&amp;D Programming Intern</h3>
+          <p class="mono exp-meta">AAON, Inc. &middot; Tulsa, OK &middot; June 2026 — Present</p>
+        </div>
+        <svg class="exp-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="exp-body">
+        <p>
+          Designing and building a Python-based CAD panel layout automation system from scratch —
+          the first tool of its kind at AAON. It parses electrical diagrams, identifies components,
+          and uses a custom layout engine to auto-place them onto 3D panel models in Autodesk Inventor.
+        </p>
+        <div class="exp-columns">
+          <div>
+            <h4 class="mono">KEY ACCOMPLISHMENTS</h4>
+            <ul>
+              <li>Architected a 7-phase pipeline separating component placement from title-block and label logic.</li>
+              <li>Shipped low-voltage panel automation (boards, relays, terminal blocks, dividers), fully config-file driven.</li>
+              <li>Extended the engine to higher-complexity, tighter-constraint high-voltage panels.</li>
+              <li>Built a "minimal movement" placement philosophy: regions default to configured anchors and only shift the smallest valid amount when collisions or boundary violations force it.</li>
+              <li>Presented business impact (wire cost reduction, earlier edge-case detection, lower engineer learning curve) to leadership via a "By the Numbers" dashboard.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="mono">SKILLS GAINED</h4>
+            <ul class="tag-list">
+              <li>Python OOP</li>
+              <li>Inventor API</li>
+              <li>Computational Geometry</li>
+              <li>Collision Detection</li>
+              <li>Config-Driven Design</li>
+              <li>Executive Communication</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mono timeline-heading" style="margin-top: 3rem;">PIPELINE PROGRESS</h3>
+    <div class="exp-timeline reveal">
+      <div class="exp-timeline-track">
+        <div class="exp-timeline-fill" style="width: 57%;"></div>
+      </div>
+      <div class="exp-timeline-labels mono">
+        <span class="done">Low-Voltage</span>
+        <span class="done">High-Voltage</span>
+        <span class="active">Wiring Automation</span>
+        <span>2D Layout Editor</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="section">
+    <p class="eyebrow mono reveal">SHEET 03 / PROJECTS</p>
+    <h2 class="section-title reveal">Project Showcase</h2>
+
+    <div class="project-controls reveal">
+      <div class="filter-group" id="filter-group">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="software">Software</button>
+        <button class="filter-btn" data-filter="mechanical">Mechanical</button>
+        <button class="filter-btn" data-filter="simulation">Simulation</button>
+      </div>
+      <div class="search-wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="search" id="project-search" placeholder="Search projects…" aria-label="Search projects">
+      </div>
+    </div>
+
+    <div class="project-grid" id="project-grid">
+
+      <article class="project-card glass reveal" data-category="software" data-title="panel layout automation">
+        <div class="project-thumb"><span class="mono">PY / INV</span></div>
+        <div class="project-body">
+          <h3>Panel Layout Automation Engine</h3>
+          <p>Parses electrical diagrams and auto-places components onto 3D panel models in Inventor via a custom region-optimization layout engine.</p>
+          <ul class="tag-list small">
+            <li>Python</li><li>Inventor API</li><li>Computational Geometry</li>
+          </ul>
+          <button class="btn btn-ghost btn-sm" data-modal-open="panel-automation">View Case Study →</button>
+        </div>
+      </article>
+
+      <article class="project-card glass reveal" data-category="mechanical simulation" data-title="formula sae rear wing">
+        <div class="project-thumb"><span class="mono">FEA</span></div>
+        <div class="project-body">
+          <h3>Formula SAE Rear Wing — Topology Optimization</h3>
+          <p>FEA-driven topology optimization on the rear wing assembly, achieving a 33% mass reduction while holding structural targets.</p>
+          <ul class="tag-list small">
+            <li>SolidWorks</li><li>FEA</li><li>Topology Optimization</li>
+          </ul>
+          <button class="btn btn-ghost btn-sm" data-modal-open="fsae-wing">View Case Study →</button>
+        </div>
+      </article>
+
+      <article class="project-card glass reveal" data-category="simulation software" data-title="rigid body die simulation">
+        <div class="project-thumb"><span class="mono">ME 314</span></div>
+        <div class="project-body">
+          <h3>Rigid-Body Die-in-Cup Simulation</h3>
+          <p>Python/Jupyter simulation of a rectangular die bouncing inside a shaken cup, built on Lagrangian mechanics and homogeneous transforms.</p>
+          <ul class="tag-list small">
+            <li>SymPy</li><li>Plotly</li><li>solve_ivp</li>
+          </ul>
+          <button class="btn btn-ghost btn-sm" data-modal-open="die-sim">View Case Study →</button>
+        </div>
+      </article>
+
+      <article class="project-card glass reveal" data-category="simulation software" data-title="biped splits simulation">
+        <div class="project-thumb"><span class="mono">ROBO</span></div>
+        <div class="project-body">
+          <h3>Biped Splits Dynamics Simulation</h3>
+          <p>Simulated a biped performing a full splits motion under holonomic constraints using Lagrangian mechanics.</p>
+          <ul class="tag-list small">
+            <li>Python</li><li>SymPy</li><li>Constrained Dynamics</li>
+          </ul>
+          <button class="btn btn-ghost btn-sm" data-modal-open="biped-sim">View Case Study →</button>
+        </div>
+      </article>
+
+      <article class="project-card glass reveal" data-category="mechanical software" data-title="matlab adaptive ode solver">
+        <div class="project-thumb"><span class="mono">MATLAB</span></div>
+        <div class="project-body">
+          <h3>Custom Adaptive ODE Solver</h3>
+          <p>Built a MATLAB adaptive step-size ODE solver from first principles and benchmarked it against built-in solvers.</p>
+          <ul class="tag-list small">
+            <li>MATLAB</li><li>Numerical Methods</li>
+          </ul>
+          <button class="btn btn-ghost btn-sm" data-modal-open="ode-solver">View Case Study →</button>
+        </div>
+      </article>
+
+      <article class="project-card glass reveal" data-category="mechanical" data-title="rayleigh ritz diving board">
+        <div class="project-thumb"><span class="mono">STRUCT</span></div>
+        <div class="project-body">
+          <h3>Spring-Supported Diving Board Beam</h3>
+          <p>Applied the Rayleigh-Ritz method to a spring-supported beam system to approximate deflection and mode shapes.</p>
+          <ul class="tag-list small">
+            <li>Structural Mechanics</li><li>Rayleigh-Ritz</li>
+          </ul>
+          <button class="btn btn-ghost btn-sm" data-modal-open="ritz-beam">View Case Study →</button>
+        </div>
+      </article>
+
+    </div>
+    <p class="empty-state mono" id="project-empty" hidden>No projects match that search — try a different term.</p>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="section">
+  <p class="eyebrow mono reveal">SHEET 04 / SKILLS</p>
+  <h2 class="section-title reveal">Skills & Capabilities</h2>
+
+  <div class="skills-categories">
+
+    <div class="skill-card glass reveal">
+      <h3>Engineering Software</h3>
+      <ul>
+        <li>Autodesk Inventor</li>
+        <li>SolidWorks</li>
+        <li>ANSYS</li>
+        <li>CFD Analysis</li>
+        <li>Finite Element Analysis (FEA)</li>
+      </ul>
+    </div>
+
+    <div class="skill-card glass reveal">
+      <h3>Programming</h3>
+      <ul>
+        <li>Python</li>
+        <li>MATLAB</li>
+        <li>SymPy</li>
+        <li>Object-Oriented Programming</li>
+        <li>Automation Development</li>
+      </ul>
+    </div>
+
+    <div class="skill-card glass reveal">
+      <h3>Manufacturing & Design</h3>
+      <ul>
+        <li>CAD Modeling</li>
+        <li>Design Optimization</li>
+        <li>Product Development</li>
+        <li>Topology Optimization</li>
+        <li>Engineering Documentation</li>
+      </ul>
+    </div>
+
+    <div class="skill-card glass reveal">
+      <h3>Leadership & Professional</h3>
+      <ul>
+        <li>Technical Presentations</li>
+        <li>Project Ownership</li>
+        <li>Cross-Functional Collaboration</li>
+        <li>Problem Solving</li>
+        <li>Team Communication</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+  <!-- ============ FEATURED CASE STUDY ============ -->
+  <section id="featured" class="section featured-section">
+    <p class="eyebrow mono reveal">SHEET 05 / FEATURED CASE STUDY</p>
+    <h2 class="section-title reveal">Panel Layout Automation — Zero to One</h2>
+
+    <div class="case-grid">
+      <div class="case-block reveal">
+        <span class="case-num mono">01</span>
+        <h3>Problem</h3>
+        <p>
+          Every commercial HVAC electrical panel at AAON was laid out by hand in Inventor — a slow,
+          repetitive process with no tooling to catch collisions or wasted wire runs before they reached
+          the shop floor. Nothing like an automated layout system existed at the company.
+        </p>
+      </div>
+      <div class="case-block reveal">
+        <span class="case-num mono">02</span>
+        <h3>Design Process</h3>
+        <p>
+          Split the problem into diagram parsing, component identification, and placement. Built the
+          placement engine around a "minimal movement" philosophy — regions anchor to configured
+          positions and move only the smallest distance necessary to resolve a collision or boundary
+          violation.
+        </p>
+      </div>
+      <div class="case-block reveal">
+        <span class="case-num mono">03</span>
+        <h3>Iterations</h3>
+        <p>
+          Started with low-voltage panels (boards, relays, terminal blocks, dividers) as a config-driven
+          proof of concept, then hardened the engine for high-voltage panels with far tighter placement
+          constraints — including a rewrite of the <code>RegionOptimizer</code> and
+          <code>CollisionDetector</code> to fix hull-comparison false positives.
+        </p>
+      </div>
+      <div class="case-block reveal">
+        <span class="case-num mono">04</span>
+        <h3>Testing</h3>
+        <p>
+          Debugged edge cases in the <code>_is_clean()</code> logic down to scoped rectangle-intersection
+          checks, closing an allocated-filter blind spot that let overlapping regions slip through
+          undetected.
+        </p>
+      </div>
+      <div class="case-block reveal">
+        <span class="case-num mono">05</span>
+        <h3>Results</h3>
+        <p>
+          Reduced wire cost through tighter, more deliberate placement, surfaced layout edge cases
+          before they hit the floor, and lowered the learning curve for engineers who previously had to
+          lay out panels by hand.
+        </p>
+      </div>
+      <div class="case-block reveal">
+        <span class="case-num mono">06</span>
+        <h3>What's Next</h3>
+        <p>
+          Wiring automation is the next frontier — still fully manual today — followed by an interactive
+          2D layout editor so engineers can reposition components before 3D generation.
+        </p>
+      </div>
+    </div>
+
+    <div class="case-diagram glass reveal" aria-hidden="true">
+      <svg viewBox="0 0 800 220" class="pipeline-svg">
+        <line x1="40" y1="110" x2="760" y2="110" class="pipeline-line"/>
+        <g class="pipeline-node" data-active="true">
+          <circle cx="90" cy="110" r="8"/><text x="90" y="150">Parse Diagram</text>
+        </g>
+        <g class="pipeline-node" data-active="true">
+          <circle cx="230" cy="110" r="8"/><text x="230" y="150">Identify Components</text>
+        </g>
+        <g class="pipeline-node" data-active="true">
+          <circle cx="370" cy="110" r="8"/><text x="370" y="150">Layout Engine</text>
+        </g>
+        <g class="pipeline-node" data-active="true">
+          <circle cx="510" cy="110" r="8"/><text x="510" y="150">Place in Inventor</text>
+        </g>
+        <g class="pipeline-node">
+          <circle cx="650" cy="110" r="8"/><text x="650" y="150">Wiring Automation</text>
+        </g>
+        <g class="pipeline-node">
+          <circle cx="760" cy="110" r="8"/><text x="760" y="150">2D Editor</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============ LEADERSHIP ============ -->
+  <section id="leadership" class="section">
+    <p class="eyebrow mono reveal">SHEET 06 / LEADERSHIP</p>
+    <h2 class="section-title reveal">Leadership &amp; Involvement</h2>
+
+    <div class="leadership-grid">
+      <div class="leadership-card glass reveal">
+        <h3>[Club / Organization Name]</h3>
+        <p class="mono leadership-role">Role — Northwestern University</p>
+        <p>Short description of responsibilities and impact. Replace with your actual club or team involvement.</p>
+      </div>
+      <div class="leadership-card glass reveal">
+        <h3>[Volunteer Organization]</h3>
+        <p class="mono leadership-role">Role — Location</p>
+        <p>Short description of volunteer work and its outcome. Swap in your real experience here.</p>
+      </div>
+      <div class="leadership-card glass reveal">
+        <h3>[Leadership Role]</h3>
+        <p class="mono leadership-role">Title — Organization</p>
+        <p>Short description of leadership scope, team size, and results. Edit before publishing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ACHIEVEMENTS ============ -->
+  <section id="achievements" class="section">
+    <p class="eyebrow mono reveal">SHEET 07 / ACHIEVEMENTS</p>
+    <h2 class="section-title reveal">Achievements</h2>
+
+    <div class="achievements-grid">
+      <div class="achievement-card glass reveal">
+        <span class="mono ach-tag">CERTIFICATION</span>
+        <h3>[Certification Name]</h3>
+        <p class="mono">Issuer &middot; Year</p>
+      </div>
+      <div class="achievement-card glass reveal">
+        <span class="mono ach-tag">AWARD</span>
+        <h3>[Award / Scholarship Name]</h3>
+        <p class="mono">Issuer &middot; Year</p>
+      </div>
+      <div class="achievement-card glass reveal">
+        <span class="mono ach-tag">COMPETITION</span>
+        <h3>Formula SAE — Rear Wing Design</h3>
+        <p class="mono">Northwestern Formula SAE</p>
+      </div>
+      <div class="achievement-card glass reveal">
+        <span class="mono ach-tag">ACADEMIC</span>
+        <h3>[Dean's List / Honor]</h3>
+        <p class="mono">Northwestern University</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ============ RESUME ============ -->
+  <section id="resume" class="section">
+    <p class="eyebrow mono reveal">
+        SHEET 08 / RESUME
+    </p>
+    <h2 class="section-title reveal">
+        Resume
+    </h2>
+    <div class="resume-viewer glass reveal">
+        <iframe
+            src="assets/resume/Gin_Tuang_Resume.pdf"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+    </div>
+    <div class="resume-actions reveal">
+        <a
+            href="assets/resume/Gin_Tuang_Resume.pdf"
+            download
+            class="btn btn-primary"
+        >
+            Download Resume
+        </a>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="section contact-section">
+    <p class="eyebrow mono reveal">SHEET 08 / CONTACT</p>
+    <h2 class="section-title reveal">Let's build something.</h2>
+    <p class="contact-sub reveal">Open to internship and full-time conversations in mechanical design, R&amp;D, and engineering software.</p>
+
+    <div class="contact-grid">
+      <form class="contact-form glass reveal" id="contact-form" novalidate>
+        <label class="field">
+          <span>Name</span>
+          <input type="text" name="name" required>
+        </label>
+        <label class="field">
+          <span>Email</span>
+          <input type="email" name="email" required>
+        </label>
+        <label class="field">
+          <span>Message</span>
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <p class="form-status mono" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="contact-links reveal">
+        <a class="contact-link glass" href="mailto:gin.tuang@example.com">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <span>gin.tuang@example.com</span>
+        </a>
+        <a class="contact-link glass" href="https://linkedin.com/in/your-handle" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="1.6"/><path d="M10 9v12M10 13a4 4 0 0 1 8 0v8"/></svg>
+          <span>LinkedIn</span>
+        </a>
+        <a class="contact-link glass" href="https://github.com/your-handle" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+          <span>GitHub</span>
+        </a>
+        <a class="contact-link glass" href="assets/resume/Gin_Tuang_Resume.pdf" download>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16"/></svg>
+          <span>Download Resume</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="#hero" class="nav-brand">G.T<span class="brand-dot">/</span></a>
+    <p class="mono footer-copy">© <span id="footer-year"></span> Gin Tuang. Built with HTML, CSS &amp; JavaScript.</p>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/your-handle" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/your-handle" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:gin.tuang@example.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ PROJECT MODAL ============ -->
+<div class="modal-overlay" id="modal-overlay" hidden>
+  <div class="modal glass" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" id="modal-close" aria-label="Close case study">&times;</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
