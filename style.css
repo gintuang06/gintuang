@@ -61,7 +61,7 @@ body{
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   transition: background .4s var(--ease), color .4s var(--ease);
-  cursor: none;
+  cursor: auto;
 }
 @media (hover: none), (pointer: coarse){
   body{ cursor: auto; }
