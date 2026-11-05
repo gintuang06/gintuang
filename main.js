@@ -21,7 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggleBtn = document.getElementById("theme-toggle");
   const root = document.documentElement;
 
-  const savedTheme = localStorage.getItem("theme");
+  const store = {
+    get: k => { try { return localStorage.getItem(k); } catch { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch {} }
+  };
+
+  const savedTheme = store.get("theme");
 
   if (savedTheme) {
     root.setAttribute("data-theme", savedTheme);
@@ -32,10 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (current === "light") {
       root.removeAttribute("data-theme");
-      localStorage.setItem("theme", "dark");
+      store.set("theme", "dark");
     } else {
       root.setAttribute("data-theme", "light");
-      localStorage.setItem("theme", "light");
+      store.set("theme", "light");
     }
   });
 
@@ -311,14 +316,24 @@ document.addEventListener("DOMContentLoaded", () => {
         creates panel layouts inside Autodesk Inventor.
         </p>
 
+        <p>
+        Before this, every commercial HVAC electrical panel was laid
+        out by hand in Inventor. The engine parses electrical diagrams,
+        identifies components, and places them into 3D panel assemblies
+        across the RNA–RND and RQ lines — the first tool of its kind at AAON.
+        </p>
+
         <h4>Highlights</h4>
         <ul>
-          <li>Config-driven architecture</li>
-          <li>Collision detection engine</li>
-          <li>Region optimization algorithm</li>
-          <li>Automatic component placement</li>
-          <li>Business-impact reporting</li>
+          <li>7-phase, config-driven pipeline that keeps component placement separate from title-block and label logic</li>
+          <li>Collision detection and region optimization built on a "minimal movement" rule: regions stay at their anchors and shift only the smallest valid amount</li>
+          <li>Shipped low-voltage panels first, then hardened the engine for tighter-constraint high-voltage panels</li>
+          <li>DWG-to-3D pipeline using both the Inventor and Solid Edge APIs</li>
+          <li>Presented the business case (wire cost, material waste, floor errors) to engineering leadership</li>
         </ul>
+
+        <h4>Next</h4>
+        <p>Wiring automation, then a 2D layout editor so engineers can adjust placement before 3D generation.</p>
       `
     },
 
@@ -326,13 +341,19 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Formula SAE Rear Wing",
       content: `
         <h3>Formula SAE Rear Wing</h3>
-        <p class="modal-meta">FEA • Topology Optimization</p>
+        <p class="modal-meta">Northwestern Formula Racing • Aero • Aug 2025 – June 2026</p>
 
         <p>
-        Reduced rear wing mass while maintaining
-        structural integrity through simulation-driven
-        design iterations.
+        Designed rear wing inserts for the car using topology
+        optimization, FEA, and CFD to take out mass without
+        giving up strength under aero load.
         </p>
+
+        <h4>Results</h4>
+        <ul>
+          <li>33% mass reduction on the inserts</li>
+          <li>Held a factor of safety of 2.0+ under peak aerodynamic loading</li>
+        </ul>
       `
     },
 
@@ -366,6 +387,69 @@ document.addEventListener("DOMContentLoaded", () => {
         Implemented adaptive step-size integration
         and benchmarked against standard MATLAB solvers.
         </p>
+      `
+    },
+
+    "brake-caliper": {
+      title: "Bike Brake Caliper Redesign",
+      content: `
+        <h3>Bike Brake Caliper Redesign</h3>
+        <p class="modal-meta">Northwestern Team 19 • FEA/Topology Lead • Spring 2026</p>
+
+        <p>
+        Our team designed a 3D-printed dual-caliper bike brake.
+        I owned the analysis side: FEA and topology optimization
+        across every design iteration.
+        </p>
+
+        <h4>Process</h4>
+        <ul>
+          <li>Ran FEA and topology optimization across 3 iterations</li>
+          <li>Cut peak stress from 126 MPa to 34 MPa at a part mass of 42.1 g</li>
+          <li>When a prototype failed in testing, compared the physical results against the FEA predictions to find the cause</li>
+          <li>Redesigned thickness, fillets, and hole placement to meet ISO 4210 braking and durability requirements</li>
+        </ul>
+
+        <h4>Takeaway</h4>
+        <p>Simulation got us close, but the failed prototype is what showed us where the model and reality didn't line up.</p>
+      `
+    },
+
+    "dyson-ring": {
+      title: "Dyson Ring Structural & Thermal Analysis",
+      content: `
+        <h3>Dyson Ring Structural &amp; Thermal Analysis</h3>
+        <p class="modal-meta">ME 362 • ANSYS • Spring 2026</p>
+
+        <p>
+        Structural FEA on a two-material ring concept under combined
+        orbital, radiation-pressure, and thermal loads.
+        </p>
+
+        <h4>Outcome</h4>
+        <ul>
+          <li>Showed that real materials fail under the combined load case</li>
+          <li>Quantified the material-property gap a feasible design would need to close</li>
+        </ul>
+      `
+    },
+
+    "gear-transmission": {
+      title: "Two-Stage Gear Transmission",
+      content: `
+        <h3>Two-Stage Gear Transmission</h3>
+        <p class="modal-meta">Machine Design • Fall 2026 • In Progress</p>
+
+        <p>
+        A three-person team designing a two-stage transmission with
+        three shafts and four gears. Each of us owns one shaft system.
+        </p>
+
+        <h4>My Part</h4>
+        <ul>
+          <li>Gear 4 and the output shaft (shaft 3)</li>
+          <li>Sizing with Shigley machine design methods</li>
+        </ul>
       `
     },
 
@@ -405,22 +489,29 @@ document.addEventListener("DOMContentLoaded", () => {
           modalData[key].content;
 
         modalOverlay.hidden = false;
+        document.body.classList.add("modal-open");
+        modalClose?.focus();
       });
     });
 
-  modalClose?.addEventListener(
-    "click",
-    () => modalOverlay.hidden = true
-  );
+  function closeModal() {
+    if (!modalOverlay || modalOverlay.hidden) return;
+    modalOverlay.hidden = true;
+    document.body.classList.remove("modal-open");
+  }
+
+  modalClose?.addEventListener("click", closeModal);
 
   modalOverlay?.addEventListener(
     "click",
     e => {
-      if (e.target === modalOverlay) {
-        modalOverlay.hidden = true;
-      }
+      if (e.target === modalOverlay) closeModal();
     }
   );
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeModal();
+  });
 
   /* ==========================================================
      FOOTER YEAR
@@ -466,8 +557,17 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    const subject =
+      encodeURIComponent(`Portfolio message from ${name}`);
+
+    const body =
+      encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+
+    window.location.href =
+      `mailto:tuanggin0@gmail.com?subject=${subject}&body=${body}`;
+
     status.textContent =
-      "Message validated. Connect Formspree or EmailJS to receive submissions.";
+      "Opening your email app to send this…";
 
     form.reset();
   });
