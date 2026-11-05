@@ -63,8 +63,22 @@ body{
   transition: background .4s var(--ease), color .4s var(--ease);
   cursor: auto;
 }
+body.modal-open{ overflow: hidden; }
+
+/* custom cursor (desktop only) */
+.cursor-dot, .cursor-ring{
+  position: fixed; top: 0; left: 0; z-index: 1000;
+  pointer-events: none; border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.cursor-dot{ width: 6px; height: 6px; background: var(--blue); }
+.cursor-ring{
+  width: 30px; height: 30px; border: 1px solid var(--cyan);
+  transition: width .2s var(--ease), height .2s var(--ease), border-color .2s var(--ease);
+}
+.cursor-ring.active{ width: 46px; height: 46px; border-color: var(--blue); }
+
 @media (hover: none), (pointer: coarse){
-  body{ cursor: none; }
   .cursor-dot, .cursor-ring{ display:none; }
 }
 
@@ -484,7 +498,7 @@ input, textarea{ font-family: inherit; }
 
 .skill-card h3{
     margin-bottom:1rem;
-    color:var(--crimson);
+    color:var(--blue);
 }
 
 .skill-card ul{
