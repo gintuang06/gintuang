@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gin Tuang — Mechanical Engineering &amp; R&amp;D Programming</title>
-<link rel="stylesheet" href="style.css">
 <meta name="description" content="Portfolio of Gin Tuang, mechanical engineering student at Northwestern University and R&D Programming Intern at AAON, Inc. CAD, FEA, CFD, Python automation, and MATLAB numerical modeling.">
 <meta name="theme-color" content="#0a0e14">
 
@@ -79,7 +78,7 @@
         <p class="hero-sub">
           R&amp;D Programming Intern at AAON, Inc. — building CAD automation tools that turn
           electrical diagrams into fully placed 3D panel models. When I'm not scripting Inventor,
-          I'm playing the guitar, watching foriegn tv shows, and catching up on the Word of God.
+          I'm playing the guitar, watching foreign TV shows, and catching up on the Word of God.
         </p>
         <div class="hero-actions">
           <a href="Gin_Tuang_Resume.pdf" class="btn btn-primary" download>
@@ -96,15 +95,14 @@
           <span class="mono hud-title">VIEWPORT — ACTIVE_TOOLS.cfg</span>
         </div>
         <ul class="hud-list mono">
-          <li><span>CAD</span><span>SolidWorks / Inventor / SolidEdge / NX Cad</span></li>
-          <li><span>SIM</span><span>FEA · CFD · Top Opt.</span></li>
+          <li><span>CAD</span><span>NX / SolidWorks / Inventor / Solid Edge</span></li>
+          <li><span>SIM</span><span>FEA (ANSYS) · CFD · Top Opt.</span></li>
+          <li><span>DWG</span><span>GD&amp;T · Tolerance Analysis</span></li>
           <li><span>NUM</span><span>MATLAB · SymPy</span></li>
           <li><span>AUTO</span><span>Python · Inventor API</span></li>
         </ul>
         <div class="hud-photo">
-            <img src="profile.JPG" alt="Gin Tuang" class="profile-image">
-        </div>
-          <span class="mono">ME</span>
+          <img src="profile.JPG" alt="Gin Tuang" class="profile-image">
         </div>
       </div>
     </div>
@@ -152,7 +150,8 @@
           thread running through everything I do — coursework, internship, side projects — is the same:
           take something that's slow, manual, or error-prone, and rebuild it as a system. That's shown
           up as a zero-to-one CAD automation pipeline at AAON, as Lagrangian-mechanics simulations for
-          robotics coursework, and as topology-optimized parts for Formula SAE.
+          robotics coursework, as topology-optimized parts for Formula SAE, and as a bike brake caliper
+          I redesigned after testing showed where the first prototype failed.
         </p>
         <p>
           Long term, I want to work at the intersection of mechanical design and the software that
@@ -170,6 +169,14 @@
             <div class="timeline-body">
               <h4>Enrolled at Northwestern University</h4>
               <p>A Mechanical Engineering student, Class of 2028.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-dot"></span>
+            <span class="timeline-date mono">Aug 2025</span>
+            <div class="timeline-body">
+              <h4>Joined Northwestern Formula Racing</h4>
+              <p>Aero team through June 2026 — topology-optimized rear wing inserts.</p>
             </div>
           </li>
           <li class="timeline-item">
@@ -198,6 +205,14 @@
           </li>
           <li class="timeline-item">
             <span class="timeline-dot"></span>
+            <span class="timeline-date mono">Fall 2026</span>
+            <div class="timeline-body">
+              <h4>Back on Campus, Still Building</h4>
+              <p>Continuing at AAON part-time and remote while taking Manufacturing Processes and Theory of Machines.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-dot"></span>
             <span class="timeline-date mono">2028</span>
             <div class="timeline-body">
               <h4>Expected Graduation</h4>
@@ -218,7 +233,7 @@
       <button class="exp-header" aria-expanded="true" data-exp-toggle>
         <div class="exp-header-text">
           <h3>R&amp;D Programming Intern</h3>
-          <p class="mono exp-meta">AAON, Inc. &middot; Tulsa, OK &middot; June 2026 — Present</p>
+          <p class="mono exp-meta">AAON, Inc. &middot; Tulsa, OK &middot; June 2026 — Present (Full-Time → Part-Time Remote)</p>
         </div>
         <svg class="exp-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
       </button>
@@ -226,7 +241,8 @@
         <p>
           Designing and building a Python-based CAD panel layout automation system from scratch —
           the first tool of its kind at AAON. It parses electrical diagrams, identifies components,
-          and uses a custom layout engine to auto-place them onto 3D panel models in Autodesk Inventor.
+          and uses a custom layout engine to auto-place them onto 3D panel models in Autodesk Inventor
+          across the RNA–RND and RQ panel lines.
         </p>
         <div class="exp-columns">
           <div>
@@ -236,6 +252,8 @@
               <li>Shipped low-voltage panel automation (boards, relays, terminal blocks, dividers), fully config-file driven.</li>
               <li>Extended the engine to higher-complexity, tighter-constraint high-voltage panels.</li>
               <li>Built a "minimal movement" placement philosophy: regions default to configured anchors and only shift the smallest valid amount when collisions or boundary violations force it.</li>
+              <li>Built the DWG-to-3D pipeline using the Inventor and Solid Edge APIs.</li>
+              <li>Worked in a production codebase with Git and Azure DevOps — pull requests, merges, and code reviews.</li>
               <li>Presented business impact (wire cost reduction, earlier edge-case detection, lower engineer learning curve) to leadership via a "By the Numbers" dashboard.</li>
             </ul>
           </div>
@@ -247,6 +265,8 @@
               <li>Computational Geometry</li>
               <li>Collision Detection</li>
               <li>Config-Driven Design</li>
+              <li>Solid Edge API</li>
+              <li>Git / Azure DevOps</li>
               <li>Executive Communication</li>
             </ul>
           </div>
@@ -312,6 +332,39 @@
         </div>
       </article>
 
+      <article class="project-card glass reveal" data-category="mechanical simulation" data-title="bike brake caliper design fea topology">
+        <div class="project-thumb"><span class="mono">TEAM 19</span></div>
+        <div class="project-body">
+          <h3>Bike Brake Caliper Redesign</h3>
+          <p>FEA/Topology Lead on a 3D-printed dual-caliper brake. Over 3 iterations, cut peak stress from 126 MPa to 34 MPa at 42.1 g, then root-caused a prototype failure against FEA and redesigned to meet ISO 4210.</p>
+          <ul class="tag-list small">
+            <li>FEA</li><li>Topology Optimization</li><li>Physical Testing</li><li>3D Printing</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="project-card glass reveal" data-category="simulation" data-title="dyson ring structural thermal analysis ansys">
+        <div class="project-thumb"><span class="mono">ME 362</span></div>
+        <div class="project-body">
+          <h3>Dyson Ring Structural &amp; Thermal Analysis</h3>
+          <p>ANSYS FEA on a two-material space structure under orbital, radiation-pressure, and thermal loads. Real materials failed, so I quantified the material-property gap a feasible design would need.</p>
+          <ul class="tag-list small">
+            <li>ANSYS</li><li>Structural FEA</li><li>Thermal Loads</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="project-card glass reveal" data-category="mechanical" data-title="two stage gear transmission shaft design">
+        <div class="project-thumb"><span class="mono">GEARS</span></div>
+        <div class="project-body">
+          <h3>Two-Stage Gear Transmission <span class="mono" style="font-size:.7em;opacity:.7">IN PROGRESS</span></h3>
+          <p>Three-person team designing a three-shaft, four-gear transmission. I own gear 4 and the output shaft (shaft 3), sized using Shigley machine design methods.</p>
+          <ul class="tag-list small">
+            <li>Machine Design</li><li>Shaft Design</li><li>Gearing</li>
+          </ul>
+        </div>
+      </article>
+
       <article class="project-card glass reveal" data-category="simulation software" data-title="rigid body die simulation">
         <div class="project-thumb"><span class="mono">ME 314</span></div>
         <div class="project-body">
@@ -374,8 +427,10 @@
     <div class="skill-card glass reveal">
       <h3>Engineering Software</h3>
       <ul>
-        <li>Autodesk Inventor</li>
+        <li>Siemens NX</li>
         <li>SolidWorks</li>
+        <li>Autodesk Inventor</li>
+        <li>Solid Edge</li>
         <li>ANSYS</li>
         <li>CFD Analysis</li>
         <li>Finite Element Analysis (FEA)</li>
@@ -390,6 +445,7 @@
         <li>SymPy</li>
         <li>Object-Oriented Programming</li>
         <li>Automation Development</li>
+        <li>Git / Azure DevOps</li>
       </ul>
     </div>
 
@@ -400,6 +456,9 @@
         <li>Design Optimization</li>
         <li>Product Development</li>
         <li>Topology Optimization</li>
+        <li>GD&amp;T &amp; Tolerance Analysis</li>
+        <li>DFM &amp; Rapid Prototyping</li>
+        <li>Sheet Metal Forming &amp; Tensile Testing</li>
         <li>Engineering Documentation</li>
       </ul>
     </div>
@@ -513,19 +572,19 @@
 
     <div class="leadership-grid">
       <div class="leadership-card glass reveal">
-        <h3>[Club / Organization Name]</h3>
-        <p class="mono leadership-role">Role — Northwestern University</p>
-        <p>Short description of responsibilities and impact. Replace with your actual club or team involvement.</p>
+        <h3>Bike Brake Caliper Design Team</h3>
+        <p class="mono leadership-role">FEA/Topology Lead — Northwestern (Team 19), Spring 2026</p>
+        <p>Owned the analysis side of the team's design: ran FEA and topology optimization across three iterations and led the redesign after a prototype failed in testing.</p>
       </div>
       <div class="leadership-card glass reveal">
-        <h3>[Volunteer Organization]</h3>
-        <p class="mono leadership-role">Role — Location</p>
-        <p>Short description of volunteer work and its outcome. Swap in your real experience here.</p>
+        <h3>Northwestern Formula Racing</h3>
+        <p class="mono leadership-role">Aero Team — Aug 2025 to June 2026</p>
+        <p>Designed rear wing inserts with topology optimization, FEA, and CFD, hitting a 33% mass reduction while holding FoS 2.0+ under peak aero load.</p>
       </div>
       <div class="leadership-card glass reveal">
-        <h3>[Leadership Role]</h3>
-        <p class="mono leadership-role">Title — Organization</p>
-        <p>Short description of leadership scope, team size, and results. Edit before publishing.</p>
+        <h3>FGA International</h3>
+        <p class="mono leadership-role">Youth Camp &amp; VBS Counselor</p>
+        <p>Led 15+ youth sessions and helped run community programs serving 300+ participants.</p>
       </div>
     </div>
   </section>
@@ -537,24 +596,19 @@
 
     <div class="achievements-grid">
       <div class="achievement-card glass reveal">
-        <span class="mono ach-tag">CERTIFICATION</span>
-        <h3>[Certification Name]</h3>
-        <p class="mono">Issuer &middot; Year</p>
-      </div>
-      <div class="achievement-card glass reveal">
-        <span class="mono ach-tag">AWARD</span>
-        <h3>[Award / Scholarship Name]</h3>
-        <p class="mono">Issuer &middot; Year</p>
+        <span class="mono ach-tag">LANGUAGE</span>
+        <h3>Oklahoma Seal of Biliteracy</h3>
+        <p class="mono">English &amp; Zopau</p>
       </div>
       <div class="achievement-card glass reveal">
         <span class="mono ach-tag">COMPETITION</span>
         <h3>Formula SAE — Rear Wing Design</h3>
-        <p class="mono">Northwestern Formula SAE</p>
+        <p class="mono">Northwestern Formula Racing &middot; 33% mass reduction</p>
       </div>
       <div class="achievement-card glass reveal">
-        <span class="mono ach-tag">ACADEMIC</span>
-        <h3>[Dean's List / Honor]</h3>
-        <p class="mono">Northwestern University</p>
+        <span class="mono ach-tag">DESIGN</span>
+        <h3>Caliper Peak Stress: 126 → 34 MPa</h3>
+        <p class="mono">Bike Brake Caliper &middot; ISO 4210</p>
       </div>
     </div>
   </section>
@@ -587,7 +641,7 @@
 
   <!-- ============ CONTACT ============ -->
   <section id="contact" class="section contact-section">
-    <p class="eyebrow mono reveal">SHEET 08 / CONTACT</p>
+    <p class="eyebrow mono reveal">SHEET 09 / CONTACT</p>
     <h2 class="section-title reveal">Let's build something.</h2>
     <p class="contact-sub reveal">Open to internship and full-time conversations in mechanical design, R&amp;D, and engineering software.</p>
 
@@ -610,9 +664,9 @@
       </form>
 
       <div class="contact-links reveal">
-        <a class="contact-link glass" href="mailto:gin.tuang@example.com">
+        <a class="contact-link glass" href="mailto:tuanggin0@gmail.com">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-          <span>gin.tuang@example.com</span>
+          <span>tuanggin0@gmail.com</span>
         </a>
         <a class="contact-link glass" href="https://linkedin.com/in/your-handle" target="_blank" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="1.6"/><path d="M10 9v12M10 13a4 4 0 0 1 8 0v8"/></svg>
@@ -640,7 +694,7 @@
     <div class="footer-links">
       <a href="https://linkedin.com/in/your-handle" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/your-handle" target="_blank" rel="noopener">GitHub</a>
-      <a href="mailto:gin.tuang@example.com">Email</a>
+      <a href="mailto:tuanggin0@gmail.com">Email</a>
     </div>
   </div>
 </footer>
